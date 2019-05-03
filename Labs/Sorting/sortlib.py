@@ -147,7 +147,33 @@ def radixSort(arr):
         countingSort(arr, exp)
         exp *= 10
 
+def quickSort(A, m, n):
+    if (m<n):
+        i = m
+        j = n
+        [i, j] = partition(A,i,j)
+        quickSort(A,m,j)
+        quickSort(A,i,n)
 
+
+
+def partition(A,i,j):
+    print("j", j)
+    print("i", i)
+    print(A[j])
+    pivot = A[int((i+j)/2)]
+    while (i<=j):
+        while(A[i]<pivot):
+            i+=1
+        while(A[j]>pivot):
+            j-=1
+        if(i<=j):
+            temp=A[i]
+            A[i]=A[j]
+            A[j]=temp
+            i+=1
+            j-=1
+    return [i,j]
 
 
 
